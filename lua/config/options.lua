@@ -3,7 +3,8 @@
 -- Add any additional options here
 vim.opt.relativenumber = true
 vim.opt.wrap = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 -- if vim.g.neovide then
 --   -- Lower values = more transparent (0.0 to 1.0)
 --   vim.g.neovide_opacity = 0.8
