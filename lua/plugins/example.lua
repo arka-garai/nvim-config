@@ -34,8 +34,9 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
-    ---@param opts cmp.ConfigSchema
+    ---@param opts table
     opts = function(_, opts)
+      opts.sources = opts.sources or {}
       table.insert(opts.sources, { name = "emoji" })
     end,
   },
@@ -68,7 +69,7 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      ---@type table
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
@@ -82,6 +83,7 @@ return {
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
       init = function()
+        ---@diagnostic disable-next-line: undefined-field
         require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- stylua: ignore
           vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
@@ -91,14 +93,14 @@ return {
     },
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      ---@type table
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+      ---@type table<string, fun(server:string, opts:table):boolean?>
       setup = {
         -- example to setup with typescript.nvim
         tsserver = function(_, opts)
