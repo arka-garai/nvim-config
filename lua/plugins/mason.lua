@@ -38,6 +38,7 @@ return {
         "jdtls",
         "jsonls",
         "lua_ls",
+        "prismals",
         "pyright",
         "pylsp",
         "tailwindcss",
