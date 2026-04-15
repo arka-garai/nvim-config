@@ -9,11 +9,14 @@ return {
         "stylua",
         "shfmt",
         "clang-format",
+        "goimports",
+        "gofumpt",
 
         -- linters
         "eslint_d",
         "shellcheck",
         "flake8",
+        "golangci-lint",
 
         -- python helpers
         "isort",
@@ -44,6 +47,7 @@ return {
         "tailwindcss",
         "ts_ls",
         "vimls",
+        "gopls",
       },
       automatic_installation = true,
     },
